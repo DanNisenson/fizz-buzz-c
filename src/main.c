@@ -11,19 +11,28 @@ int main()
     {
         if (i % 3 == 0 && i % 5 == 0)
         {
-            printf("FizBuzz\n");
+            printf("FizBuzz");
         }
         else if (i % 3 == 0)
         {
-            printf("Fizz\n");
+            printf("Fizz");
         }
         else if (i % 5 == 0)
         {
-            printf("Buzz\n");
+            printf("Buzz");
         }
         else
         {
-            printf("%d\n", i);
+            printf("%d", i);
+        }
+
+        if (i != limit)
+        {
+            printf(", ");
+        }
+        else
+        {
+            printf(".");
         }
     }
 }
