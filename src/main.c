@@ -1,38 +1,52 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "lib.c"
 
-#define LIMIT 30;
+#define LIMIT 30
+
+void fizz_buzz(char *buffer, int limit);
 
 int main()
 {
-    int limit = LIMIT;
+    char buffer[1000] = {};
 
+    fizz_buzz(buffer, LIMIT);
+
+    printf("Result:\n%s", buffer);
+    return 0;
+}
+
+void fizz_buzz(char *buffer, int limit)
+{
     for (int i = 1; i <= limit; i++)
     {
         if (i % 3 == 0 && i % 5 == 0)
         {
-            printf("FizBuzz");
+            strcat(buffer, "FizBuzz");
         }
         else if (i % 3 == 0)
         {
-            printf("Fizz");
+            strcat(buffer, "Fizz");
         }
         else if (i % 5 == 0)
         {
-            printf("Buzz");
+            strcat(buffer, "Buzz");
         }
         else
         {
-            printf("%d", i);
+            char tmp[3] = {};
+            sprintf(tmp, "%d", i);
+            strcat(buffer, tmp);
         }
 
         if (i != limit)
         {
-            printf(", ");
+            strcat(buffer, ", ");
         }
         else
         {
-            printf(".");
+            strcat(buffer, ".");
         }
     }
 }
